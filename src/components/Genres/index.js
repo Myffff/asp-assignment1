@@ -8,10 +8,12 @@ const Genres = ({
   genres,
   setGenres,
   type,
+  setPage,
 }) => {
   const handleAdd = (genre) => {
     setSelectedGenres([...selectedGenres, genre]);
     setGenres(genres.filter((g) => g.id !== genre.id));
+    setPage(1);
   };
 
   const handleRemove = (genre) => {
@@ -30,6 +32,9 @@ const Genres = ({
 
   useEffect(() => {
     fetchGenres();
+    return () => {
+      setGenres({}); // unmounting
+    };
     // eslint-disable-next-line
   }, []);
 

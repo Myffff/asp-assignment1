@@ -1,6 +1,10 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .app {
   min-height: 100vh;
-  background-color: #39445a;
+  background-color: #5a4164;
   color: black;
   padding-top: 130px;
   padding-bottom: 70px;
@@ -13,13 +17,14 @@
 .pageTitle {
   text-transform: uppercase;
   display: flex;
+  position: relative;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
   font-size: 2vw;
   padding: 7px;
-  margin: 5px 0;
-  background-color: #39445a;
-  box-shadow: 0px 1px 5px black;
+  margin-top:10%;
+  /* background-color: #39445a;
+  box-shadow: 0px 1px 5px black; */
   border-radius: 50px;
   color: white;
 }

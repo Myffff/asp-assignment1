@@ -5,14 +5,19 @@
   padding: 10px;
   margin: 5px 0;
   background-color: #282c34;
+  color: beige;
   border-radius: 10px;
   position: relative;
   font-family: "Montserrat", sans-serif;
 }
 
+.media_text {
+  text-align: right;
+}
+
 .media:hover {
   background-color: white;
-  color: #282c34;
+  color: #14161a;
 }
 
 @media (max-width: 550px) {

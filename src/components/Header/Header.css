@@ -1,15 +1,16 @@
 .header {
   width: 100%;
   cursor: pointer;
-  position: relative;
+  position: fixed;
   top:0;
   display: flex;
   justify-content: center;
   text-transform: uppercase;
-  background-color: #39445a;
+  background-color: #141722;
   font-family: "Montserrat", sans-serif;
   font-size: 4vw;
   padding-bottom: 10px;
+  margin-bottom: 10px;
   box-shadow: 0px 1px 5px black;
   color: white;
   z-index: 100;

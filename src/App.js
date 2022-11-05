@@ -19,6 +19,7 @@ function App() {
             <Route path="/movies" element={<Movies/>} />
             <Route path="/series" element={<Series/>} />
             <Route path="/search" element={<Search/>} />
+            {/* add some more */}
           </Routes>
         </Container>
       <SimpleBottomNavigation />
