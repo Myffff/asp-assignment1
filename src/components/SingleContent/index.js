@@ -11,7 +11,7 @@ const SingleContent = ({ poster, title, date, media_type, vote_average }) => {
         <Stack spacing={1}>
           <Rating name="half-rating-read" value={vote_average/2} precision={0.1} readOnly />
         </Stack>
-        <b className="title">{title}</b>
+        <p className="title">{title}</p>
         <span className="subTitle">
           {media_type === "tv" ? "TV Series" : "Movie"}
           <span className="subTitle">{date}</span>
