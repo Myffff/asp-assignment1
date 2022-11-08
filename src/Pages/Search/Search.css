@@ -1,0 +1,15 @@
+
+.search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 40px;
+    background-color: rgb(96, 102, 121);
+  }
+
+.noFound {
+    color: black;
+}

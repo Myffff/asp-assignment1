@@ -5,8 +5,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const darkTheme = createTheme({
     palette: {
         neutral: {
-          main: '#ffffff',
-          contrastText: '#ffffff',
+          main: '#ae9c98',
+          contrastText: '#000000',
         },
     },
 });
@@ -23,7 +23,8 @@ const CustomPagination = ({setPage,numOfPage = 10}) => {
                 <Pagination 
                     sx={{
                         marginLeft: "30%",
-                        marginBottom: "80px",
+                        paddingBottom: "25px",
+                        marginBottom: "50px",
                     }}
                     onChange={(e) => handlePageChange(e.target.textContent)} 
                     count={numOfPage} variant="outlined" 
