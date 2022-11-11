@@ -11,12 +11,7 @@ const darkTheme = createTheme({
     },
 });
 
-const CustomPagination = ({setPage,numOfPage = 10}) => {
-    const handlePageChange = (page) => {
-        setPage(page);
-        window.scroll(0,0);
-    };
-
+const CustomPagination = ({handleChange, numOfPage = 10}) => {
     return(
         <div>
             <ThemeProvider theme={darkTheme}>
@@ -26,7 +21,7 @@ const CustomPagination = ({setPage,numOfPage = 10}) => {
                         paddingBottom: "25px",
                         marginBottom: "50px",
                     }}
-                    onChange={(e) => handlePageChange(e.target.textContent)} 
+                    onChange={handleChange} 
                     count={numOfPage} variant="outlined" 
                     color="neutral" size="large"/>
             </ThemeProvider>

@@ -5,6 +5,7 @@ import TvIcon from "@mui/icons-material/Tv";
 import MovieIcon from "@mui/icons-material/Movie";
 import SearchIcon from "@mui/icons-material/Search";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
+import CreditScoreIcon from '@mui/icons-material/CreditScore';
 import { useNavigate } from "react-router-dom";
 
 const root ={
@@ -30,6 +31,8 @@ export default function SimpleBottomNavigation() {
       navigate("/series");
     } else if (value === 3) {
       navigate("/search");
+    } else if (value === 4) {
+      navigate("/topRating");
     }
   }, [value, navigate]);
 
@@ -61,6 +64,11 @@ export default function SimpleBottomNavigation() {
         style={{ color: "white" }}
         label="Search"
         icon={<SearchIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Top"
+        icon={<CreditScoreIcon />}
       />
     </BottomNavigation>
   );

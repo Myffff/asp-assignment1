@@ -55,7 +55,6 @@ describe("Base tests for movie page", () => {
 
     it("displays only movies shows in this page", () => {
       cy.get(".media").each(() => {
-        // cy.wrap($card).find("p").contains(movies[index].title||movies[index].name);
         cy.get("span.subTitle").contains("Movie")
       });
     });

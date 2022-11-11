@@ -1,7 +1,7 @@
 import {Button,createTheme,Tab,Tabs,TextField,ThemeProvider} from "@mui/material";
 import "./Search.css";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/index";
 import CustomPagination from "../../components/pagination/index";
@@ -23,10 +23,10 @@ const Search = () => {
     },
   });
 
-  const fetchSearch = async () => {
+  const fetchSearch = async() => {
     try {
       const { data } = await axios.get(
-        `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=26ba5e77849587dbd7df199727859189&language=en-US&query=${searchText}&page=${page}&include_adult=false`
+        `https://api.themoviedb.org/3/search/${type ? "movie":"tv"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`
       );
       setContent(data.results);
       setNumOfPages(data.total_pages);
@@ -35,6 +35,11 @@ const Search = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    fetchSearch();
+    // eslint-disable-next-line
+  }, [type, page])
 
   return (
     <div>
@@ -59,8 +64,9 @@ const Search = () => {
           value={type}
           indicatorColor="primary"
           textColor="primary"
-          onChange={(newValue) => {
-            setType(Number(newValue));
+          onChange={(event,newValue) => {
+            setType(newValue);
+            // console.log(newValue.target.value)
             setPage(1);
           }}
           style={{ paddingBottom: 5 }}
@@ -83,11 +89,9 @@ const Search = () => {
               vote_average={c.vote_average}
             />
           ))}
-        <div className="noFound">
           {searchText &&
           !content &&
           (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
-        </div>
       </div>
       {numOfPages > 1 && (
         <CustomPagination setPage={setPage} numOfPages={numOfPages} />
