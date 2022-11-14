@@ -8,10 +8,16 @@ import CustomPagination from "../../components/pagination/index";
 const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
-  const [page, setPage] = useState(1);
+
   const [content, setContent] = useState([]);
   const [numOfPage, setNumOfPage] = useState();
   const genreforURL = useGenre(selectedGenres);
+
+  let [page,setPage] = useState(1);
+
+  const handleChange = (e, value) => {
+    setPage(value)
+  }
 
   const fetchMovies = async () => {
     const { data } = await axios.get(
@@ -53,7 +59,7 @@ const Movies = () => {
           ))}
       </div>
       {numOfPage > 1 && (
-        <CustomPagination setPage={setPage} numOfPage={numOfPage} />
+        <CustomPagination handleChange={handleChange} numOfPage={numOfPage} />
       )}
       
     </div>

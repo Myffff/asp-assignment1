@@ -10,6 +10,7 @@ import Series from "./Pages/Series/index";
 import TopRating from "./Pages/TopRating/index";
 import Trending from "./Pages/Trending";
 import Search from "./Pages/Search/index";
+import People from "./Pages/People";
 import MaterialUISwitch from "./components/Switch";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/movies" element={<Movies/>} />
           <Route path="/series" element={<Series/>} />
           <Route path="/search" element={<Search/>} />
+          <Route path="/people" element={<People/>} />
           {/* add some more */}
         </Routes>
         <SimpleBottomNavigation />

@@ -6,7 +6,7 @@ import CustomPagination from "../../components/pagination/index";
 import { useQuery } from "react-query";
 
 const Trending = () => {
-  let [page,setPage] = useState(1);
+  const [page,setPage] = useState(1);
 
   const handleChange = (e, value) => {
     setPage(value)

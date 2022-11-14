@@ -14,6 +14,10 @@ const Search = () => {
   const [content, setContent] = useState([]);
   const [numOfPages, setNumOfPages] = useState();
 
+  const handleChange = (e, value) => {
+    setPage(value)
+  }
+
   const darkTheme = createTheme({
     palette: {
       type: "dark",
@@ -94,7 +98,7 @@ const Search = () => {
           (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
       </div>
       {numOfPages > 1 && (
-        <CustomPagination setPage={setPage} numOfPages={numOfPages} />
+        <CustomPagination handleChange={handleChange} numOfPages={numOfPages} />
       )}
     </div>
   );
