@@ -46,4 +46,19 @@ describe("Navigation", () => {
     });
   });
 
+  describe("From the trending page movie detail modal", () => {
+    it("click card and show correct containers", () => {
+      cy.get(".media").eq(0).find("img").click();
+      cy.get("span[class='ContentModal__title']").contains(movies[0].title||movies[0].name);
+      cy.get("span[class='ContentModal__description']").contains(movies[0].overview);
+      cy.get(".alice-carousel"||null);
+    });
+    it("jump to youtube trailer", () => {
+      cy.get(".media").eq(0).find("img").click();
+      cy.get("a").click();
+    });
+  });
+
+
+
 });
