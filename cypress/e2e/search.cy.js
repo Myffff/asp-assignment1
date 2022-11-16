@@ -1,7 +1,7 @@
 let movies; // List of movies from TMDB
 import { filterByTitle } from "../support/e2e";
 
-describe("Base tests", () => {
+describe("tests for search page", () => {
   before(() => {
     cy.request(
         `https://api.themoviedb.org/3/search/movie?api_key=${Cypress.env(
