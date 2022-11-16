@@ -22,6 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "start:ci": "start-server-and-test 'http-server ./build  -p 3000 -P http://localhost:3000?' 3000 'cypress run --browser chrome '",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,6 +47,8 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^11.0.1"
+    "cypress": "^11.0.1",
+    "http-server": "^13.0.2",
+    "start-server-and-test": "^1.14.0"
   }
 }
