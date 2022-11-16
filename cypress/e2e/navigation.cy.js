@@ -3,7 +3,7 @@ let movies;
 describe("Navigation", () => {
   before(() => {
     cy.request(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${Cypress.env(
         "TMDB_KEY"
       )}&language=en-US&include_adult=false&include_video=false&page=1`
     )
