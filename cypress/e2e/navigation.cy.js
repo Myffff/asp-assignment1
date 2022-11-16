@@ -55,7 +55,10 @@ describe("Navigation", () => {
     });
     it("jump to youtube trailer", () => {
       cy.get(".media").eq(0).find("img").click();
-      cy.get("a").click();
+      Cypress.Commands.add('clickLink', (label) => {
+        cy.get('a').contains(label).click()
+      })
+      cy.clickLink('Watch the Trailer')
     });
   });
 
