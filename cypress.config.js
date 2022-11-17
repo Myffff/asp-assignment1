@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   video: false,
+
   e2e: {
     "baseUrl": "http://localhost:3000/",
     "viewportWidth": 1980,
@@ -10,4 +11,11 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+
+  "component": {
+    "devServer": {
+      "framework": "create-react-app",
+      "bundler": "webpack"
+    }
+  }
 });
