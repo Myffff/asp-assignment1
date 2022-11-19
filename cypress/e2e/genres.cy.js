@@ -3,6 +3,8 @@ import {filterByGenre} from '../support/e2e'
 let movies;
 let series;
 
+Cypress.config('defaultCommandTimeout', 10000);
+
 describe("Genres in movies page", () => {
   before(() => {
     cy.request(
