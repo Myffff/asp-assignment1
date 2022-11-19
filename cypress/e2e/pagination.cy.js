@@ -1,5 +1,6 @@
 let movies;
 
+Cypress.config('defaultCommandTimeout', 10000);
 describe("Pagination", () => {
   before(() => {
     cy.request(
