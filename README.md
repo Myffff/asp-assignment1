@@ -17,3 +17,5 @@ This request was created by Zihan.
 ## Cypress component testing in:
 + components/pagination/pagination.cy.js
 + components/Switch/switch.cy.js
+
+## finish Auto-deployment
