@@ -26,11 +26,11 @@ describe("Genres in movies page", () => {
         cy.get("Button").contains("Movies").click();
         cy.url().should("include", `/movie`);
         Cypress.Commands.add('getGenre', (index) => {
-          cy.get("span[class='MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label']").eq(index);
+          cy.get(".MuiChip-label").eq(index);
         })
     });
     it("contains Genres on the top of page.", () => {
-      cy.get("span[class='MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label']");
+      cy.get(".MuiChip-label");
     });
     it("click comedy and it will show in the beginning of Genres list.", () => {
       cy.getGenre(0).contains("Action");
@@ -69,11 +69,11 @@ describe("Genres in TV series page", () => {
       cy.get("Button").contains("TV Series").click();
       cy.url().should("include", `/series`);
       Cypress.Commands.add('getGenre', (index) => {
-        cy.get("span[class='MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label']").eq(index);
+        cy.get(".MuiChip-label").eq(index);
       })
     });
     it("contains Genres on the top of page.", () => {
-      cy.get("span[class='MuiChip-label MuiChip-labelSmall css-wjsjww-MuiChip-label']");
+      cy.get(".MuiChip-label");
     });
     it("click one genre and this one jump and show in the beginning of Genres list.", () => {
       cy.getGenre(0).contains("Action & Adventure");
