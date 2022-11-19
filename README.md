@@ -7,7 +7,7 @@ YouTube:https://www.youtube.com/watch?v=hdbvSPpuyTI
 
 Website Demo: https://moviehub-asp-yifei.netlify.app/
 
-![homePage](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/pic/homePage.jpg?raw=true)
+![homePage](https://gitlab.com/YifeiMa/asp-assignment1/-/raw/main/pic/homePage.jpg)
 ## Object
 Automate the build process of a React SPA project.
 
@@ -32,13 +32,13 @@ Contains informative test documentation, multi-layer describe.
 + `pages/Movies/index.js`
 + `pages/Series/index.js`
 
-![code-splitting](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/pic/codeSplitting.jpg?raw=true)
+![code-splitting](https://gitlab.com/YifeiMa/asp-assignment1/-/raw/main/pic/codeSplitting.jpg)
 
 ## Source control
 ### Log history
 screenshots of git history:
 
-![git-log](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/pic/gitLog.jpg?raw=true)
+![git-log](https://gitlab.com/YifeiMa/asp-assignment1/-/raw/main/pic/gitLog.jpg)
 ### Branch-Edit-Merge workflow
 branches:
 - main
