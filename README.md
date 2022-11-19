@@ -18,4 +18,5 @@ This request was created by Zihan.
 + components/pagination/pagination.cy.js
 + components/Switch/switch.cy.js
 
-## finish Auto-deployment
+## finish Auto-deployment:
+https://moviehub-asp-yifei.netlify.app/
