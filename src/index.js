@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, lazy, Suspense} from "react";
 import {createRoot} from "react-dom/client";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import "./index.css";
 import "./App.css";
 import Header from "./components/Header";
 import SimpleBottomNavigation from "./components/MainNav";
-import Movies from "./Pages/Movies/index";
+// import Movies from "./Pages/Movies/index";
 import Series from "./Pages/Series/index";
 import TopRating from "./Pages/TopRating/index";
 import Trending from "./Pages/Trending";
@@ -16,6 +16,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 
+const Movies = lazy(() => import("./Pages/Movies/index"));
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -51,15 +52,17 @@ const App = () => {
             marginLeft: "20px",
             }}
         />
-        <Routes>
-          <Route path="/" element={<Trending/>} />
-          <Route path="/topRating" element={<TopRating/>} />
-          <Route path="/movies" element={<Movies/>} />
-          <Route path="/series" element={<Series/>} />
-          <Route path="/search" element={<Search/>} />
-          <Route path="/people" element={<People/>} />
-          {/* add some more */}
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path="/" element={<Trending/>} />
+            <Route path="/topRating" element={<TopRating/>} />
+            <Route path="/movies" element={<Movies/>} />
+            <Route path="/series" element={<Series/>} />
+            <Route path="/search" element={<Search/>} />
+            <Route path="/people" element={<People/>} />
+            {/* add some more */}
+          </Routes>
+        </Suspense>
         <SimpleBottomNavigation />
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
