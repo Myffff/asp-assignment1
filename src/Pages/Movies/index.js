@@ -3,10 +3,10 @@ import { useEffect, useState,  lazy, Suspense } from "react";
 // import Genres from "../../components/Genres/index";
 import useGenre from "../../hooks/useGenre";
 import SingleContent from "../../components/SingleContent/index";
-import CustomPagination from "../../components/pagination/index";
+// import CustomPagination from "../../components/pagination/index";
 
 const Genres = lazy(() => import("../../components/Genres/index"));
-
+const CustomPagination = lazy(() => import("../../components/pagination/index"));
 const Movies = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -62,7 +62,9 @@ const Movies = () => {
           ))}
       </div>
       {numOfPage > 1 && (
-        <CustomPagination handleChange={handleChange} numOfPage={numOfPage} />
+        <Suspense>
+          <CustomPagination handleChange={handleChange} numOfPage={numOfPage} />
+        </Suspense>
       )}
       
     </div>

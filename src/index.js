@@ -4,19 +4,26 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import "./index.css";
 import "./App.css";
 import Header from "./components/Header";
-import SimpleBottomNavigation from "./components/MainNav";
+// import SimpleBottomNavigation from "./components/MainNav";
 // import Movies from "./Pages/Movies/index";
-import Series from "./Pages/Series/index";
-import TopRating from "./Pages/TopRating/index";
+// import Series from "./Pages/Series/index";
+// import TopRating from "./Pages/TopRating/index";
 import Trending from "./Pages/Trending";
-import Search from "./Pages/Search/index";
-import People from "./Pages/People";
-import MaterialUISwitch from "./components/Switch";
+// import Search from "./Pages/Search/index";
+// import People from "./Pages/People";
+// import MaterialUISwitch from "./components/Switch";
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 const Movies = lazy(() => import("./Pages/Movies/index"));
+const Series = lazy(() => import("./Pages/Series/index"));
+const TopRating = lazy(() => import("./Pages/TopRating/index"));
+const Search= lazy(() => import("./Pages/Search/index"));
+const People= lazy(() => import("./Pages/People/index"));
+const MaterialUISwitch = lazy(() => import("./components/Switch"));
+const SimpleBottomNavigation = lazy(() => import("./components/MainNav"));
+
 const App = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -44,14 +51,18 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Header />
+        <Suspense>
         <FormControlLabel
-          control={<MaterialUISwitch/>}
+          control={
+              <MaterialUISwitch/>
+          }
           checked={checked}
           onChange={handleChange}
           sx={{marginTop: "100px",
             marginLeft: "20px",
             }}
         />
+        </Suspense>
         <Suspense>
           <Routes>
             <Route path="/" element={<Trending/>} />
@@ -63,7 +74,10 @@ const App = () => {
             {/* add some more */}
           </Routes>
         </Suspense>
-        <SimpleBottomNavigation />
+        <Suspense>
+          <SimpleBottomNavigation />
+        </Suspense>
+        
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
