@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import Genres from "../../components/Genres/index";
+import { useEffect, useState,  lazy, Suspense } from "react";
+// import Genres from "../../components/Genres/index";
 import useGenre from "../../hooks/useGenre";
 import SingleContent from "../../components/SingleContent/index";
 import CustomPagination from "../../components/pagination/index";
+const Genres = lazy(() => import("../../components/Genres/index"));
 
 const Series = () => {
   const [genres, setGenres] = useState([]);
@@ -33,14 +34,16 @@ const Series = () => {
   return (
     <div>
       <span className="pageTitle">Discover TV Series</span>
-      <Genres
+      <Suspense>
+        <Genres
         type="tv"
         selectedGenres={selectedGenres}
         setSelectedGenres={setSelectedGenres}
         genres={genres}
         setGenres={setGenres}
         setPage={setPage}
-      />
+        />
+      </Suspense>
       
       <div className="trending">
         {content &&
