@@ -1,6 +1,6 @@
 import CustomPagination from './index';
 
-describe('<MaterialUISwitch>', () => {
+describe('<CustomPagination>', () => {
   it('mounts', () => {
     cy.mount(<CustomPagination />)
   })

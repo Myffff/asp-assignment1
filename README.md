@@ -1,22 +1,66 @@
 # Movies App
-## have Error/Exception testing in:
-+ search.cy.js - line 60.
-## have Cypress Custom commands in :
-+ navigation.cy.js - line 58.
-+ genres.cy.js - line 28, line 71.
+Yifei Ma
 
-## have Bundling/Code splitting in ：
-+ index.js
-+ components/pages/Movies/index.js
-+ components/pages/Series/index.js
+GitLab:https://gitlab.com/YifeiMa/asp-assignment1
 
-## one pull request from ZihanZhang:
+YouTube:https://www.youtube.com/watch?v=hdbvSPpuyTI
+
+Website Demo: https://moviehub-asp-yifei.netlify.app/
+
+![homePage](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/pic/homePage.jpg?raw=true)
+## Object
+Automate the build process of a React SPA project.
+
+## Automated E2E Tests.
+### Functionality and navigation test:
++ `base.cy.is` - discover trending today and show trending page successfully(which is home page of the app).
++ `baseTestofOtherPage.cy.js` - discover movies , tv series, popular people,etc. and show them successfully in different pages.
++ `genres.cy.js` - select genre(s), show related movies/tv series on the page.
++ `navigation.cy.js` - 1. jump from trending page to other pages, including: movies page; tv series page; search page; top rating page; People page. 2. jump from trending page to movie/tv detail modal.
++ `pagination.cy.js` - jump from current page to selected page. in trending page, only show 10 pages. in movies/tv series page, show all pages.
++ `search.cy.js` - search name related movies/tv series.
+
+### Error/Exception testing in:
++ [search.cy.js - line 60](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/cypress/e2e/search.cy.js).
+### Test case structure (nesting):
+Contains informative test documentation, multi-layer describe.
+### Cypress Custom commands in :
++ [navigation.cy.js - line 58](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/cypress/e2e/navigation.cy.js).
++ [genres.cy.js - line 28, line 71](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/cypress/e2e/genres.cy.js).
+
+## Bundling/Code splitting：
++ `pages/Movies/index.js`
++ `pages/Series/index.js`
+
+![code-splitting](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/pic/codeSplitting.jpg?raw=true)
+
+## Source control
+### Log history
+screenshots of git history:
+
+![git-log](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/pic/gitLog.jpg?raw=true)
+### Branch-Edit-Merge workflow
+branches:
+- main
+- develop
+- basic-ci-config
+- basic-splitting
+- tests-in-ci
+- more-splitting
+- optimize-main-bundle
 ### Pull Request
 This request was created by Zihan.
 
+## Continuous integration
+### [Pipeline](https://gitlab.com/YifeiMa/asp-assignment1/-/blob/main/.gitlab-ci.yml)
+stages: install, build, test
+### Branching policy
+- develop branch - execute Install and build jobs only.
+- main branch - perform Install, build, and test jobs.
 ## Cypress component testing in:
-+ components/pagination/pagination.cy.js
-+ components/Switch/switch.cy.js
++ `components/pagination/pagination.cy.js` - selected page number get a different style.
++ `components/Switch/switch.cy.js` - selected stage get a different background color.
 
-## finish Auto-deployment:
+## Auto-deployment:
+use netlify to implement auto-deployment:
 https://moviehub-asp-yifei.netlify.app/
