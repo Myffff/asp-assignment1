@@ -43,3 +43,10 @@ e2etest:
   script:
     - echo "Run tests in headless mode"
     - npm run start:ci
+
+componentTest:
+  image: cypress/browsers:node12.14.1-chrome85-ff81
+  stage: test
+  script:
+    - echo "Run tests in headless mode"
+    - npm run start:ci1
