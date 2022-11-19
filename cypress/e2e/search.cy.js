@@ -40,15 +40,6 @@ describe("tests for search  movie page", () => {
       cy.url().should("include", `/search`);
 
     });
-    it("contains search input and button.", () => {
-        cy.get(".search").contains("Search");
-        cy.get(".search").find("svg");
-    });
-
-    it("contains switch between movies and TV series.", () => {
-      cy.get("Button").contains("Search Movies");
-      cy.get("Button").contains("Search TV Series");
-    });
 
     describe("By movie title", () => {
       it("handles case when there are no matches", () => {
@@ -80,29 +71,40 @@ describe("tests for search  movie page", () => {
     });
     
     
-    describe("By tv series title", () => {it("only display TVs with 'comedy' in the title", () => {
-
-      const searchString = "comedy";
-      cy.get("input").eq(1).type(searchString); 
-      cy.get("button").eq(0).click();
-      cy.get("button").eq(2).click();
-      cy.get(".media").should(
-        "have.length",
-        series.length
-      );
-      cy.get(".media").each(() => {
-        cy.get("span.subTitle").contains("TV Series")
-      });
-      cy.on('uncaught:exception', (err, runnable) => {
-        cy.get(".media").each(($card, index) => {
-          cy.wrap($card).find("b").contains(series[index].title||series[index].name);
+    describe("By tv series title", () => {
+      it("only display TVs with 'comedy' in the title", () => {
+        const searchString = "comedy";
+        cy.get("input").eq(1).type(searchString); 
+        cy.get("button").eq(0).click({force: true});
+        cy.get("button").eq(2).click({force: true});
+        cy.get(".media").should(
+          "have.length",
+          series.length
+        );
+        cy.get(".media").each(() => {
+          cy.get("span.subTitle").contains("TV Series")
         });
-        if (err.message.includes('list not defined')) {
-          return false
-        }
-      })
+        cy.on('uncaught:exception', (err, runnable) => {
+          cy.get(".media").each(($card, index) => {
+            cy.wrap($card).find("b").contains(series[index].title||series[index].name);
+          });
+          if (err.message.includes('list not defined')) {
+            return false
+          }
+        })
+      });
+    });
+
+    
+    it("contains search input and button.", () => {
+        cy.get(".search").contains("Search");
+        cy.get(".search").find("svg");
+    });
+
+    it("contains switch between movies and TV series.", () => {
+      cy.get("Button").contains("Search Movies");
+      cy.get("Button").contains("Search TV Series");
     });
   });
-});
 
 });
